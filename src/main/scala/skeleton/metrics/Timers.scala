@@ -10,6 +10,8 @@ import scala.concurrent.duration.FiniteDuration
 class Timers(registry: MetricRegistry) {
 
   val helloWorld: Timer = registry.timer("hello-world")
+  val allBadgers: Timer = registry.timer("all-badgers")
+  val individualBadger: Timer = registry.timer("individual-badger")
 
 }
 

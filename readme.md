@@ -10,7 +10,9 @@ or use ```./bin/startLocal.sh```
 
 Endpoints:
 
-`/`  
+`/`
+`/api/badgers`
+`/api/badgers/{badger name}`  
 `/status`  
-`/status/version`
+`/status/version`  
 `/metrics`

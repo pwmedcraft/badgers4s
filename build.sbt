@@ -1,5 +1,7 @@
 import LibraryVersions._
 
+addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full)
+
 val basicScalacOptions = Seq(
   "-deprecation",                      // Emit warning and location for usages of deprecated APIs.
   "-encoding", "utf-8",                // Specify character encoding used by source files.
@@ -76,10 +78,11 @@ lazy val root = Project("skeleton", file("."))
     buildInfoOptions += BuildInfoOption.BuildTime,
     libraryDependencies ++= Seq(
       typesafeConfig,
-      http4sCore, http4sServer,
+      http4sCore, http4sServer, http4sCirce, http4sDropwizardMetrics,
+      circeCore, circeGeneric, circeParser, //circeJava8, circeGenericExtras,
       logback, journal,
-      metricsCore, metricsHealthChecks, metricsJson, metricsJvm, http4sDropwizardMetrics,
-      scalaTest
+      metricsCore, metricsHealthChecks, metricsJson, metricsJvm,
+      scalaTest, scalaTestCirce
     ),
     testOptions in Test ++= Seq(
       Tests.Argument(TestFrameworks.ScalaTest, "-h", "target/test-reports")

@@ -11,7 +11,7 @@ import org.http4s.server.middleware.Metrics
 import skeleton.config.{ApplicationConfiguration, Environment}
 import skeleton.logging.Loggable
 import skeleton.metrics.{MetricRegistryWithJvmGauges, Timers}
-import skeleton.service.{MetricsService, RootService, StatusService}
+import skeleton.service.{BadgerService, MetricsService, RootService, StatusService}
 
 import scala.concurrent.duration._
 
@@ -47,6 +47,7 @@ object SkeletonApp extends IOApp with Loggable {
       .withHttpApp(Router(
         "/status" -> StatusService.service,
         "/metrics" -> new MetricsService(metricRegistry).service,
+        "/api/badgers" -> timingMiddleware(new BadgerService(timers).service),
         "/" -> timingMiddleware(new RootService(timers).service)
       ).orNotFound)
       .serve.compile.drain.as(ExitCode.Success)
