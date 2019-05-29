@@ -8,11 +8,13 @@ import org.http4s.server.Router
 import org.http4s.server.blaze._
 import skeleton.config.{ApplicationConfiguration, Environment}
 import skeleton.logging.Loggable
-import skeleton.service.RootService
+import skeleton.service.{RootService, StatusService}
 
 import scala.concurrent.duration._
 
 object SkeletonApp extends IOApp with Loggable {
+
+  import scala.language.postfixOps
 
   override def run(args: List[String]): IO[ExitCode] = {
 
@@ -36,6 +38,7 @@ object SkeletonApp extends IOApp with Loggable {
       .withIdleTimeout(3 minutes)
       .bindHttp(config.port, "0.0.0.0")
       .withHttpApp(Router(
+        "/status" -> StatusService.service,
         "/" -> RootService.service
       ).orNotFound)
       .serve.compile.drain.as(ExitCode.Success)

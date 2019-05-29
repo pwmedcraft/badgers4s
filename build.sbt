@@ -51,6 +51,7 @@ val basicScalacOptions = Seq(
 val prodScalacOptions = basicScalacOptions :+ "-Ywarn-value-discard" // Warn when non-Unit expression results are unused.
 
 lazy val root = Project("skeleton", file("."))
+  .enablePlugins(BuildInfoPlugin, GitVersioning, GitBranchPrompt)
   .settings(Seq(
     name := "skeleton",
     version := Option(System.getenv("BUILD_NUMBER")).getOrElse("DEV-SNAPSHOT"),
@@ -62,6 +63,17 @@ lazy val root = Project("skeleton", file("."))
     scalacOptions in (Compile, console) --= Seq("-Ywarn-unused:imports", "-Xfatal-warnings"),
     fork in Test := true,
     parallelExecution in Test := true,
+    buildInfoPackage := "skeleton",
+    buildInfoKeys := Seq[BuildInfoKey](
+      name,
+      version,
+      scalaVersion,
+      sbtVersion,
+      BuildInfoKey.action("commitHash") {
+        git.gitHeadCommit.value
+      }
+    ),
+    buildInfoOptions += BuildInfoOption.BuildTime,
     libraryDependencies ++= Seq(
       typesafeConfig,
       http4sCore, http4sServer,

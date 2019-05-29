@@ -1,7 +1,6 @@
 package skeleton.config
 
 import skeleton.logging.Loggable
-import cats.Eq
 import cats.syntax.either._
 
 import scala.util.Properties
