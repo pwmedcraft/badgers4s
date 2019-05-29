@@ -1,0 +1,5 @@
+-Dfile.encoding=UTF-8
+-XX:+CMSClassUnloadingEnabled
+-Dcom.sun.xml.bind.v2.bytecode.ClassTailor.noOptimize=true
+-Xss16m
+-XX:MaxMetaspaceSize=768m

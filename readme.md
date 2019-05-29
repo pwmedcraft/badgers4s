@@ -1,0 +1,1 @@
+Base http4s / Circe / Doobie app to test library upgrades.

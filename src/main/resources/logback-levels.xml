@@ -1,0 +1,3 @@
+<included>
+    <logger level="info" name ="org.http4s" />
+</included>
