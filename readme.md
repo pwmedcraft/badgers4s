@@ -13,3 +13,4 @@ Endpoints:
 `/`  
 `/status`  
 `/status/version`
+`/metrics`

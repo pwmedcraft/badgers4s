@@ -78,6 +78,7 @@ lazy val root = Project("skeleton", file("."))
       typesafeConfig,
       http4sCore, http4sServer,
       logback, journal,
+      metricsCore, metricsHealthChecks, metricsJson, metricsJvm, http4sDropwizardMetrics,
       scalaTest
     ),
     testOptions in Test ++= Seq(
