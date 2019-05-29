@@ -82,7 +82,7 @@ lazy val root = Project("skeleton", file("."))
       circeCore, circeGeneric, circeParser, circeJava8, //circeGenericExtras,
       logback, journal,
       metricsCore, metricsHealthChecks, metricsJson, metricsJvm,
-      scalaTest, scalaTestCirce
+      scalaTest, scalaTestCirce, pegdown
     ),
     testOptions in Test ++= Seq(
       Tests.Argument(TestFrameworks.ScalaTest, "-h", "target/test-reports")

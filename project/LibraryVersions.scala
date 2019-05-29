@@ -32,4 +32,5 @@ object LibraryVersions {
   //test
   val scalaTest = "org.scalatest" %% "scalatest" % "3.0.5"
   val scalaTestCirce = "com.stephenn" %% "scalatest-circe" % "0.0.1" % "test"
+  val pegdown = "org.pegdown" % "pegdown" % "1.6.0" % "test"
 }
