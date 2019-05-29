@@ -79,7 +79,7 @@ lazy val root = Project("skeleton", file("."))
     libraryDependencies ++= Seq(
       typesafeConfig,
       http4sCore, http4sServer, http4sCirce, http4sDropwizardMetrics,
-      circeCore, circeGeneric, circeParser, //circeJava8, circeGenericExtras,
+      circeCore, circeGeneric, circeParser, circeJava8, //circeGenericExtras,
       logback, journal,
       metricsCore, metricsHealthChecks, metricsJson, metricsJvm,
       scalaTest, scalaTestCirce

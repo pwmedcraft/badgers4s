@@ -3,7 +3,11 @@ package skeleton.service
 import java.time.{Instant, LocalDateTime, ZoneId}
 
 import cats.effect.IO
+import io.circe.Json
+import io.circe.java8.time._
+import io.circe.syntax._
 import org.http4s.HttpRoutes
+import org.http4s.circe._
 import org.http4s.dsl.io._
 import skeleton.BuildInfo
 import skeleton.status.Uptime
@@ -24,6 +28,15 @@ object StatusService {
          |
        """.stripMargin
     )
+    case GET -> Root / "json" => Ok(Json.obj(
+      ("appName", Json.fromString(BuildInfo.name)),
+      ("version", Json.fromString(BuildInfo.version)),
+      ("commit", BuildInfo.commitHash.map(Json.fromString).getOrElse(Json.Null)),
+      ("buildTime", LocalDateTime.ofInstant(Instant.ofEpochMilli(BuildInfo.builtAtMillis), ZoneId.systemDefault()).asJson),
+      ("scalaVersion", Json.fromString(BuildInfo.scalaVersion)),
+      ("timestamp", Json.fromString(LocalDateTime.now().toString)),
+      ("uptime", Json.fromString(Uptime.uptime)),
+    ))
   }
 
 }

@@ -14,5 +14,6 @@ Endpoints:
 `/api/badgers`
 `/api/badgers/{badger name}`  
 `/status`  
+`/status/json`  
 `/status/version`  
 `/metrics`
