@@ -1,4 +1,4 @@
-package skeleton.service
+package badgers4s.service
 
 import java.time.LocalDate
 
@@ -7,9 +7,9 @@ import io.circe.syntax._
 import org.http4s._
 import org.http4s.circe._
 import org.http4s.dsl.io._
-import skeleton.metrics.Timers
-import skeleton.metrics.Timers.time
-import skeleton.model.{Badger, Berries, HedgehogsFeet, Nuts, Seeds}
+import badgers4s.metrics.Timers
+import badgers4s.metrics.Timers.time
+import badgers4s.model.{Badger, Berries, HedgehogsFeet, Nuts, Seeds}
 
 class BadgerService(timers: Timers) {
 

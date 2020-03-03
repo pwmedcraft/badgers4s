@@ -1,4 +1,4 @@
-package skeleton.service
+package badgers4s.service
 
 import java.util.concurrent.TimeUnit
 

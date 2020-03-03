@@ -1,4 +1,4 @@
-package skeleton
+package badgers4s
 
 import cats.effect.{ExitCode, IO, IOApp}
 import cats.implicits._
@@ -8,14 +8,14 @@ import org.http4s.metrics.dropwizard.Dropwizard
 import org.http4s.server.{HttpMiddleware, Router}
 import org.http4s.server.blaze._
 import org.http4s.server.middleware.Metrics
-import skeleton.config.{ApplicationConfiguration, Environment}
-import skeleton.logging.Loggable
-import skeleton.metrics.{MetricRegistryWithJvmGauges, Timers}
-import skeleton.service.{BadgerService, MetricsService, RootService, StatusService}
+import badgers4s.config.{ApplicationConfiguration, Environment}
+import badgers4s.logging.Loggable
+import badgers4s.metrics.{MetricRegistryWithJvmGauges, Timers}
+import badgers4s.service.{BadgerService, MetricsService, RootService, StatusService}
 
 import scala.concurrent.duration._
 
-object SkeletonApp extends IOApp with Loggable {
+object Badgers4sApp extends IOApp with Loggable {
 
   import scala.language.postfixOps
 
@@ -38,7 +38,7 @@ object SkeletonApp extends IOApp with Loggable {
 
     val metricRegistry = MetricRegistryWithJvmGauges.apply
     val timers = new Timers(metricRegistry)
-    val timingMiddleware: HttpMiddleware[IO] = Metrics.apply(Dropwizard(metricRegistry, "skeleton"))
+    val timingMiddleware: HttpMiddleware[IO] = Metrics.apply(Dropwizard(metricRegistry, "badgers4s"))
 
     BlazeServerBuilder[IO]
       .withResponseHeaderTimeout(3 minutes)

@@ -1,4 +1,4 @@
-package skeleton.service
+package badgers4s.service
 
 import java.time.{Instant, LocalDateTime, ZoneId}
 
@@ -9,8 +9,8 @@ import io.circe.syntax._
 import org.http4s.HttpRoutes
 import org.http4s.circe._
 import org.http4s.dsl.io._
-import skeleton.BuildInfo
-import skeleton.status.Uptime
+import badgers4s.BuildInfo
+import badgers4s.status.Uptime
 
 object StatusService {
 

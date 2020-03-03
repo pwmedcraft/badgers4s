@@ -1,4 +1,4 @@
-package skeleton.config
+package badgers4s.config
 
 import com.typesafe.config.Config
 

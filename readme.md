@@ -1,4 +1,4 @@
-Base http4s / Circe / Doobie app to test library upgrades.
+Basic Scala / http4s / Circe (/ Doobie - TODO!) backend demo app
 
 You might have to do `sbt compile` from shell before running to build BuildInfo, or have IntelliJ set to use sbt shell for builds.
 

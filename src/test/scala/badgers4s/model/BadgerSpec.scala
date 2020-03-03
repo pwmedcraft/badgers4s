@@ -1,4 +1,4 @@
-package skeleton.model
+package badgers4s.model
 
 import java.time.LocalDate
 

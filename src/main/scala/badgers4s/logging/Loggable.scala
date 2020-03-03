@@ -1,4 +1,4 @@
-package skeleton.logging
+package badgers4s.logging
 
 import journal.Logger
 

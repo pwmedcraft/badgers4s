@@ -1,10 +1,10 @@
-package skeleton.service
+package badgers4s.service
 
 import cats.effect.IO
 import org.http4s._
 import org.http4s.dsl.io._
-import skeleton.metrics.Timers
-import skeleton.metrics.Timers.time
+import badgers4s.metrics.Timers
+import badgers4s.metrics.Timers.time
 
 class RootService(timers: Timers) {
 

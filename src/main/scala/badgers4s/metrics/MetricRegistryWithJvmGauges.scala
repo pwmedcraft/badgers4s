@@ -1,4 +1,4 @@
-package skeleton.metrics
+package badgers4s.metrics
 
 import java.util.concurrent.TimeUnit
 

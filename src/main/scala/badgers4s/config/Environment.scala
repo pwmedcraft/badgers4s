@@ -1,6 +1,6 @@
-package skeleton.config
+package badgers4s.config
 
-import skeleton.logging.Loggable
+import badgers4s.logging.Loggable
 import cats.syntax.either._
 
 import scala.util.Properties
